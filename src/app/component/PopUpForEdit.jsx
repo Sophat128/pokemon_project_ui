@@ -61,9 +61,9 @@ export default function PopUpForEdit({ pokemon }) {
     <div className="modal-box bg-whitesmoke">
       <div className="flex flex-col">
         <div className="flex items-center justify-between">
-          <span className="text-xl font-poppins font-black">Edit project</span>
+          <span className="text-xl font-poppins font-black">Edit pokemon</span>
         </div>
-        <div className="">
+        <div className="mt-6">
           <div class="mb-6">
             <label
               for="large-input"
@@ -78,7 +78,7 @@ export default function PopUpForEdit({ pokemon }) {
 
               onChange={onUserInput}
               id="large-input"
-              className="block w-full p-4 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+              className="block w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
               required
             />
           </div>
@@ -155,27 +155,30 @@ export default function PopUpForEdit({ pokemon }) {
                 />
               </div>
             ) : (
-              <div key={index + 1}>
-                <label
-                  for="small-input"
-                  className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
-                >
-                  ability {index + 1}
-                </label>
-                <input
-                  name="ability"
-                  onChange={(event) => handleFormChange(event, index)}
-                   value={form}
-                  type="text"
-                  id="small-input"
-                  className="block w-full p-2 text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-xs focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
-                  required
-                />
-                <button onClick={() => removeFields(index)}>Remove</button>
-              </div>
+              <div key={index + 1} >
+          <label
+            htmlFor={`small-input-${index}`}
+            className="block mb-2 text-sm font-medium text-gray-900 dark:text-white"
+          >
+            Ability {index + 1}
+          </label>
+          <div className="flex">
+
+          <input
+            name="ability"
+            value={form}
+            onChange={(event) => handleFormChange(event, index)}
+            type="text"
+            id={`small-input-${index}`}
+            className="block w-full text-gray-900 border border-gray-300 rounded-lg bg-gray-50 sm:text-md focus:ring-blue-500 focus:border-blue-500 dark:bg-gray-700 dark:border-gray-600 dark:placeholder-gray-400 dark:text-white dark:focus:ring-blue-500 dark:focus:border-blue-500"
+            required
+          />
+          <button onClick={() => removeFields(index)} className="btn ml-3 bg-red-600 text-white hover:bg-red-700">Remove</button>
+          </div>
+        </div>
             )
           )}
-          <button onClick={addFields}>Add More..</button>
+          <button onClick={addFields} className="btn mt-3">Add More..</button>
         </div>
       </div>
 

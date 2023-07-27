@@ -57,9 +57,9 @@ export default function PopUpForCreate() {
     <div className="modal-box bg-whitesmoke">
       <div className="flex flex-col">
         <div className="flex items-center justify-between">
-          <span className="text-xl font-poppins font-black">Edit project</span>
+          <span className="text-xl font-poppins font-black">Create pokemon</span>
         </div>
-        <div className="">
+        <div className="mt-6">
           <div class="mb-6">
             <label
               for="large-input"
@@ -158,6 +158,8 @@ export default function PopUpForCreate() {
 
 
               </label>
+              <div className="flex">
+
               <input
               name="ability"
 
@@ -169,14 +171,15 @@ export default function PopUpForCreate() {
               required
 
               />
-               <button onClick={() => removeFields(index)}>Remove</button>
+               <button onClick={() => removeFields(index)} className="btn ml-3 bg-red-600 hover:bg-red-700 text-white">Remove</button>
+              </div>
             </div>
             )
             
           )
           )
           }
-          <button onClick={addFields}>Add More..</button>
+          <button onClick={addFields} className="btn mt-3">Add More..</button>
         </div>
       </div>
 
